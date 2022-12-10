@@ -15,6 +15,7 @@ The Twitter data is streamed as events per tweet. The volume depends on the curr
 ## Events Enriched with Sentiment Analysis
 RoBERTa is an NLP model, from Facebook, based on the BERT language.
 The University of Cardiff RoBERTa model was pretrained in sentiment analysis of Tweet texts and was added to the python code of the collector to enrich the crypto tweet events by adding sentiment analysts. The model result was qualified as POSITIVE, NEGATIVE, or NEUTRAL applying a softmax function, also a corresponding direction of 1, 0, or -1 was added to facilitate calculations on the event counts.
+(https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment)
 
 ## Expected results
 Collecting the real-time Twitter data using this processing pipeline allows us to identify which cryptocurrencies become more volatile -based on the trending number of tweets.
