@@ -1,5 +1,4 @@
-# Final-Project-e88
-## Crypto Forecast with Twitter Data
+# Crypto Forecast with Twitter Data
 
 ## Project Goal and Problem Statement
 With the recent collapse of the FTX crypto scam, I wonder if data from Twitter related to the top cryptocurrencies can be collected and used to correlate and forecast volatility.
