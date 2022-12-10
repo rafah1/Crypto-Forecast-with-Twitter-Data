@@ -5,7 +5,8 @@ With the recent collapse of the FTX crypto scam, I wonder if data from Twitter r
 This project aims to demonstrate how to build a system that collects real-time tweets of the existing cryptocurrencies -using keywords. This data can be indexed by its exchange symbols and fed into Elastic Cloud for graphical presentation and analysis.
 
 ## Big Data Source
-The data source is Twitter streaming data, filtered to receive tweets related to the top 20 cryptocurrencies. 
+The data source is Twitter streaming data, filtered to receive tweets related to the top 20 cryptocurrencies. (https://coinmarketcap.com/coins/)
+
 To avoid the incompatibility of other data-collecting tools due to the recent update on the Twitter API and to achieve a high streaming speed, I developed my collector in Python using API calls based on the Twitter API V2 stream specification.
 
 ## Data Format
