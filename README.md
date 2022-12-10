@@ -22,3 +22,23 @@ Sentiment analysis of the tweet’s text was added to the pipeline to enrich the
 ## Processing Pipeline Diagram
 <img width="468" alt="image" src="https://user-images.githubusercontent.com/35944732/206832853-2cc2738d-97fe-41e4-8bfb-f9cc2714af02.png">
 
+
+## Processing Pipeline
+Collection tier: Ad-Hoc collector made in python
+
+- The collector ingests the data from Twitter -filtered by the cryptocurrencies’ symbols, tagged with keywords related to the matches found within the text
+- At the time of collection, the data gets enriched with sentiment analysis of the text
+
+### Messaging tier: Kafka
+
+- The collector acts as a Kafka producer pushing events into the defined crypto Kafka topic for further processing 
+- Kafka produces the topic to send the events to the Kafka listeners
+
+### Stream Processing Tier: Logstash 
+
+- Logstash listens to the Kafka topic crypto
+- Adds a timestamp, converts the id to a string, and delivers de data as the index crypto for Elasticsearch and Kibana
+
+### Visualization Tier: Kibana with Elasticsearch
+
+- Kibana with Elasticsearch is used to visualize the received data and graphically analyze the cryptocurrencies tweet trends
