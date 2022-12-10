@@ -1,0 +1,46 @@
+#Creating the Python virtual environment
+Pipenv install
+
+# Starting the docker containers (Kafka Zookeeper and Brokers(1,2,3), and ELK framework)
+docker-compose -f twitter_crypto_f2.yml up #-d
+#Check
+docker ps
+nc -z localhost 2181
+nc -z localhost 9092
+nc -z localhost 9093
+nc -z localhost 9094
+nc -z localhost 5601
+nc -z localhost 9200
+nc -z localhost 5044
+
+# Creating the crypto Kafka topic with 2 partition and 2 replicas
+docker exec -it broker1 /bin/kafka-topics \
+--bootstrap-server broker3:29092 \
+--create \
+--topic crypto \
+--replication-factor 2 \
+--partitions 2
+#Check
+docker exec -it broker1 /bin/kafka-topics \
+--bootstrap-server broker3:29092 \
+--list
+
+#Creating the Kafka consumer for monitoring the messenger
+docker exec -it broker1 /bin/kafka-console-consumer \
+--bootstrap-server broker1:29092 \
+--topic crypto
+
+# Creating a Kafka manual producer for testing
+docker exec -it broker1 /bin/kafka-console-producer \
+--bootstrap-server broker1:29092 \
+--topic crypto
+
+#Starting ELK stack
+docker exec -it project-elk-1 bash
+
+#Restating
+service logstash stop
+/opt/logstash/bin/logstash -f /lsconf/logstash.conf
+
+#Starting the Twitter collector
+python3 tw_collect.py
