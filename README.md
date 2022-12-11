@@ -5,7 +5,7 @@ With the recent collapse of the FTX crypto scam, I wonder if data from Twitter r
 This project aims to demonstrate how to build a system that collects real-time tweets of the existing cryptocurrencies -using keywords. This data can be indexed by its exchange symbols and fed into Elastic Cloud for graphical presentation and analysis.
 
 YouTube Video URL
-https://youtu.be/7obfymGdBsE
+https://youtu.be/uV1kpTkHq7U
 
 ## Big Data Source
 The data source is Twitter streaming data, filtered to receive tweets related to the top 20 cryptocurrencies. (https://coinmarketcap.com/coins/)
