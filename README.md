@@ -42,7 +42,7 @@ Collection tier: Ad-Hoc collector made in python
 ### Stream Processing Tier: Logstash 
 
 - Logstash listens to the Kafka topic crypto
-- Adds a timestamp, converts the id to a string, and delivers de data as the index crypto for Elasticsearch and Kibana
+- Adds a timestamp, converts the id to a string, and delivers the data as the index crypto for Elasticsearch and Kibana
 
 ### Visualization Tier: Kibana with Elasticsearch
 
